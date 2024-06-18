@@ -15,7 +15,7 @@ log_file_name = None
 
 # Define access token, page ID, and OpenAI details
 ACCESS_TOKEN = ""
-OPENAI_API_KEY = "sk-proj-jbz6vRa3OSXnr7eObrjPT3BlbkFJd3ADHmUHltTxW3xCga0d"
+OPENAI_API_KEY = ""
 OPENAI_ASSISTANT_ID = "asst_OiwOACvdUQVk1kRy7NRUKtMs"
 PAGE_NAME = ""
 ID_IT_TAG = None
