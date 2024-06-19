@@ -1,0 +1,42 @@
+Checking conversations...
+Conversation ID: 272584925948695_7724245134332166
+Customer: Emi Magallanes
+Messages:
+- Ito adress ko Bkl 9 Lt 8Alecante st,Phs3 Lessandra Camella Salenas 2Bacoor Cavite
+- ok
+- Sigi Gray and green 8setter ang table ito cell no  0991 332 1330
+- 
+No valid SKU found in the message.
+Missing SKU ID, product ID, variation ID, or quantity. Skipping OpenAI request and order sending.
+Conversation ID: 272584925948695_8033131546726372
+Customer: Margie Bermejo
+Messages:
+- okay po order na po ako
+- Margie Bermejo
+- O9197803328
+- Zone 4 sta lucia Nabua Camarines Sur
+- (  Near solar dyer)
+No valid SKU found in the message.
+Missing SKU ID, product ID, variation ID, or quantity. Skipping OpenAI request and order sending.
+Conversation ID: 272584925948695_25761329463513637
+Customer: Ruby Mejio
+Messages:
+- Can I customise my order?
+- mag kano
+- leonila Gonzales  09756734409  Balagtas bulacan  Barangay santol  ps 1 bk 32  20   order po ako 2 pcs 189 po
+No valid SKU found in the message.
+Missing SKU ID, product ID, variation ID, or quantity. Skipping OpenAI request and order sending.
+Skipping conversation as tags EXPORTED or ENCODED are present.
+Skipping conversation as tags EXPORTED or ENCODED are present.
+======================
+Iteration end timestamp: 2024-06-19 10:50:48.300733
+Logs for this iteration have been saved to: terminal_logs_TableTapestry_06_19.txt
+Waiting for 5 minutes before checking conversations again...
+Checking conversations...
+Conversation ID: 272584925948695_25761329463513637
+Customer: Ruby Mejio
+Messages:
+- Can I customise my order?
+- mag kano
+- leonila Gonzales  09756734409  Balagtas bulacan  Barangay santol  ps 1 bk 32  20   order po ako 2 pcs 189 po
+SKU ID: 775, Product ID: ['c70f4aed-68cd-4eb6-b7b8-4ec331d0df94'], Variation ID: ['8e5e8d32-4cee-4136-8a63-565feebc16da'], Quantity: [2]

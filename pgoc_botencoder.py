@@ -8,8 +8,6 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import scrolledtext
 import re
-from opencage.geocoder import OpenCageGeocode
-from geopy.geocoders import Nominatim
 
 log_file_name = None
 
@@ -207,87 +205,10 @@ def get_latest_order_info(conversation_id, customer_id):
         return None
 
 
-# Nomatin App
-# def get_zip_code_from_address(address):
-#     endpoint = f'https://nominatim.openstreetmap.org/search?q={address}&format=json'
-    
-#     try:
-#         response = requests.get(endpoint)
-#         if response.status_code == 200:
-#             data = response.json()
-#             if data and len(data):
-#                 zip_code = data[0].get('address').get('postcode')
-#                 return zip_code
-#             else:
-#                 return None
-#         else:
-#             return None
-#     except requests.exceptions.RequestException as e:
-#         print(f"Error: {e}")
-#         return None
-
-# OpenCage (only free trial after 1 month)
-# def get_zip_code_from_address(address):
-#     api_key = "d4b7584bafdf480ea1b89d64fcec4d42"
-#     geocoder = OpenCageGeocode(api_key)
-#     try:
-#         results = geocoder.geocode(address)
-#         if results and len(results):
-#             components = results[0]['components']
-#             zip_code = components.get('postcode')
-#             return zip_code
-#         else:
-#             return None
-#     except Exception as e:
-#         print(f"Error: {e}")
-#         return None
-
-
-# def get_zip_code_from_address(address):
-#     # Initialize Nominatim geocoder
-#     print("inside_geo",address)
-#     find_address = ""
-#     geolocator = Nominatim(user_agent="my_geocoder")
-#     segments = address.split(',')
-#     # Loop through the segments, removing the first segment each time
-#     for i in range(len(segments)):
-#         # Create a new sentence from the remaining segments
-#         new_address = ', '.join(segment.strip() for segment in segments[i:])
-#         # Geocode the address
-#         location = geolocator.geocode(new_address)
-#         print("In Loop")
-
-#         # Check if location was found
-#         if location:
-#             # Extract ZIP code if available
-#             if 'postcode' in location.raw['address']:
-#                 find_address = location.raw['address']['postcode']
-#                 print("Zip Code Get", find_address)
-#                 break
-#             else:
-#                 find_address = None
-#         else:
-#             print(f"Could not find the location for '{address}'.")
-#             find_address = None
-    
-#     if find_address == None:
-#         return None
-#     else: 
-#         return find_address
-
-
-def send_order_to_pos(url, json_response, sku_id, product_ids, variation_ids, quantities, full_address):
+def send_order_to_pos(url, json_response, sku_id, product_ids, variation_ids, quantities):
     items = []
     combo_product_variations = []
     combo_variation_ids = []  # For storing unique IDs for combo product variations
-
-    address = full_address
-    # get_zip = get_zip_code_from_address(address)
-    print("Address", address)
-    # if get_zip:
-    #     print("Zip Code:", get_zip)
-    # else:
-    #     print("Cant Get Zip")
 
     # Process items
     for prod_id, var_id, qty in zip(product_ids, variation_ids, quantities):
@@ -552,11 +473,9 @@ def main():
                                             "address": openai_response_json.get("address", "")
                                         }
 
-                                        full_address = openai_response_json.get("full_address", "")
-
                                         pos_response_code = send_order_to_pos(
                                             send_order_url, json_response, latest_sku_id, 
-                                            latest_product_id, latest_variation_id, latest_quantity, full_address
+                                            latest_product_id, latest_variation_id, latest_quantity
                                         )
 
                                         if pos_response_code == 200:
